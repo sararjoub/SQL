@@ -38,6 +38,7 @@ VALUES
 (4, 'Mona Khaled', 'mona@techworld.com', 800.00, 3, '0794444444');
 
 UPDATE Employees SET Salary = 1350.00 WHERE EmployeeID=1;
+
 DELETE FROM Employees
 WHERE EmployeeID = 4;
 
@@ -62,25 +63,29 @@ SELECT COUNT(*) AS TotalEmployees
 FROM Employees;
 
     SELECT * FROM Departments;
+
    
-   USE TechWorldHRDB;
 
 
    CREATE TABLE AccessCards (
    CardID int primary key ,
    CardNumber VARCHAR(50)  NOT NULL UNIQUE,
    EmployeeID int NOT NULL UNIQUE FOREIGN KEY REFERENCES Employees (EmployeeID) );
+
    INSERT INTO AccessCards ( CardID , CardNumber , EmployeeID )
    values (1 ,'101',1) ,(2,'102',2) ,(3,'103',3);
+
    SELECT * FROM AccessCards;
 
    create table Projects (
    ProjectID  int PRIMARY KEY ,
    ProjectName VARCHAR(100) NOT NULL ,
    );
+
    INSERT INTO Projects(ProjectID ,ProjectName )
    VALUES ( 1, 'AI & Security Training' ) ,
    (2,'Cloud Migration');
+
 
    SELECT * FROM Projects;
 
@@ -93,6 +98,7 @@ ProjectID  int REFERENCES Projects (ProjectID),
 
    -- composit primary key --
     PRIMARY KEY (EmployeeID, ProjectID) );
+
     INSERT INTO EmployeeProjects (EmployeeID ,ProjectID ,AssignedDate)
     values (1, 1, '2026-10-01'),
             (1, 2, '2026-10-02'),
